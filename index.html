@@ -1,0 +1,130 @@
+<!DOCTYPE html>  
+  
+<html>  
+<head runat="server">  
+    <title>MyTrips</title>  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  <script src="js/myCtrl.js"></script>
+</head>  
+
+<body ng-app="myTrip" ng-controller="myController">
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-55 align-items-center">
+      <div class="col-12">
+
+        <nav class="navbar navbar-expand-sm bg-light justify-content-center nav1">
+            <h1 class="color font2" align="center">Make my Trip</h1>
+            <h5 align="center" class="ml-5" >esay go..</h5>
+        </nav>
+    <div class="container mt-5">
+          
+        
+        <div class="row">
+            <div class="col-sm-5">
+                <form action="#" name="frm">
+                    <div class="form-group">
+                      <label for="startingL" class="color2"><b>Staring Location: </b></label>
+                      <input type="text" class="form-control font" placeholder="Enter Starting Location" ng-model="startingL" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="endingL" class="color2"><b>Ending Location: </b></label>
+                      <input type="text" class="form-control font" placeholder="Enter Ending Location" ng-model="endingL" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="tripN" class="color2"><b>Trip Name: </b></label>
+                              <input type="text" class="form-control font" placeholder="Trip Name (eg:- Trip to Manali..)" ng-model="tripN" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="duration" class="color2"><b>Ending Duration: </b></label>
+                               <select class="form-control font" ng-model="duration" placeholder="Duration" required>
+                                    <option selected>Duration</option>
+                                    <option>Half Day</option>
+                                    <option>1 Day</option>
+                                    <option>1 Night</option>
+                                    <option>2 Nights</option>
+                                    <option>3 Nights</option>
+                                    <option>4 Nights</option>
+                                    <option>5 Night</option>
+                                    <option>6 Nights</option>
+                                    <option>7 Nights</option>
+                                    <option>8 Nights</option>
+                                    <option>9 Night</option>
+                                    <option>10 Nights</option>
+                                    <option>11 Nights</option>
+                                    <option>12 Nights</option>
+                                    <option>13 Night</option>
+                                    <option>14 Nights</option>
+                                    <option>15 Nights</option>
+                                    <option>1 Month</option>
+                                    <option>2 Months</option>
+                                    <option>3 Months</option>
+                                </select> 
+                            </div>
+                        </div>
+                    </div>
+                        <button ng-click="addtrips()" ng-if="addbtn" ng-disabled="trp.$invalid" class="btn btn-primary">ADD YOUR TRIP</button>
+                        <button ng-click="update()" ng-if="updatebtn" class="btn btn-success">Update</button>
+
+                </form>
+                <div class="mb-5"></div>
+            </div><hr><br><br>
+            <div class="col-sm-7">
+                <h3 align="center" class="color1">Trip Record</h3>
+                <div class="table-responsive">          
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Starting Location</th>
+                        <th>Ending Location</th>
+                        <th>Trip Name</th>
+                        <th>Duration</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="trip in mytrips">
+                        <td>{{ trip.startingL }}</td>
+                        <td>{{ trip.endingL }}</td>
+                        <td>{{ trip.tripN }}</td>
+                        <td>{{ trip.duration }}</td>
+                        <td>
+                            <button ng-click="edit($index,trip.startingL,trip.endingL,trip.tripN,trip.duration)" class="btn btn-info">Edit</button>
+                        </td>
+                        <td>
+                            <button ng-click="deletemyTrip($index)" class="btn btn-danger">Delete</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                    <div class="ml-5">Total Trips : {{count}}</div>
+                  </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+        
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+</body>  
+</html>  

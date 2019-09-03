@@ -1,0 +1,28 @@
+.color{
+	color: #9B0B30;
+}
+.color2{
+	color: #48C9B0;
+	font-size: 16px;
+}
+.color1{
+	color: #48C9B0;
+}
+.font{
+	font-weight: bold;
+}
+
+.font2{
+	font-family: "Brush Script MT", Times, serif;
+}
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nav1{
+	margin-top: 5px !important;
+}
